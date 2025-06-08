@@ -173,6 +173,7 @@ a {
     border-radius: 20px;
     padding: 11px 40px 11px 20px;
     outline: 1px solid rgba(0, 0, 0, 0.09);
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .course-sidebar-list {
@@ -231,7 +232,7 @@ a {
     text-align: center;
 }
 
-.featured-course .course-menu a:active,
+.featured-course .course-menu .active,
 .featured-course .course-menu a:hover {
     color: #fff;
     background: #783df0;
@@ -246,8 +247,7 @@ a {
 }
 
 .course-item {
-    width: calc((100% / 3) - 60px);
-    flex-grow: 1;
+    width: calc((100% / 3) - 20px);
 }
 
 .course-item .thumb {
@@ -262,10 +262,14 @@ a {
     border: 1px solid #eeeeee;
 }
 
-.course-item .body .title {
+.course-item .body .title a {
     font-weight: 700;
     font-size: 1.8rem;
     color: #464646;
+}
+
+.course-item .body .title a:hover {
+    color: #b80257;
 }
 
 .course-item .body .desc {
@@ -301,6 +305,11 @@ a {
     margin-right: 5px;
 }
 
+.course-item .body .price {
+    font-weight: 700;
+    background: #b80257;
+}
+
 .course-pagination {
     display: flex;
     gap: 10px;
@@ -312,9 +321,22 @@ a {
     padding: 7px 10px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 8px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.3);
+}
+.course-pagination li:last-child {
+    margin-left: 10px;
+}
+
+.course-pagination li:last-child a {
+    color: #fff;
 }
 
 .course-pagination li a:hover {
+    border: 1px solid #783df0;
+}
+
+.course-pagination li .active {
     border: 1px solid #783df0;
 }
 
@@ -382,6 +404,7 @@ a {
     border: none;
     caret-color: #fff;
     outline: none;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-cta {
