@@ -1,0 +1,396 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700|Source+Sans+Pro:300,400,600,700");
+
+:root {
+    --font-heading: "PT Sans", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.5rem;
+}
+
+input,
+button,
+textarea,
+select {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+button {
+    color: inherit;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+}
+
+/* COMMON */
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    min-width: 66px;
+    padding: 8px 17px;
+    background: #783df0;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 99px;
+    text-align: center;
+}
+
+/* .top-page */
+.top-page {
+    display: flex;
+    min-height: 496px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url(../img/bg-banner.jpg) center / cover no-repeat;
+}
+
+.top-page .inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    min-height: 60px;
+}
+
+.header .logo {
+    height: 34px;
+}
+
+.header .nav {
+    display: flex;
+}
+
+.header .nav a {
+    padding: 15px 25px;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+}
+
+.user-actions {
+    display: flex;
+}
+
+.user-actions .action-btn {
+    color: #fff;
+    padding: 14px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+.breadcrumbs {
+    display: flex;
+    margin-top: 10px;
+}
+
+.breadcrumbs li {
+    display: flex;
+}
+
+.breadcrumbs li + li::before {
+    content: "/";
+    padding: 0 10px;
+}
+
+.breadcrumbs li a {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* .main */
+.main {
+    margin-top: 110px;
+    padding-bottom: 100px;
+}
+
+.row {
+    display: flex;
+}
+
+.course-sidebar {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.course-sidebar-search-form {
+    position: relative;
+}
+
+.course-sidebar-search-form input {
+    min-width: 270px;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+    padding: 11px 40px 11px 20px;
+    outline: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+.course-sidebar-list {
+    margin-top: 30px;
+}
+
+.course-sidebar-list h6 {
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.course-sidebar-list ul {
+    margin-top: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.course-sidebar-list ul a {
+    display: block;
+    padding: 12px 25px;
+    color: rgba(0, 0, 0, 0.7);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.course-sidebar-list ul a:hover {
+    color: #783df0;
+}
+
+.course-sidebar-list ul li:last-child a {
+    border-bottom: none;
+}
+
+.course-sidebar .search-btn {
+    position: absolute;
+    font-size: 15px;
+    top: 0;
+    right: 8px;
+    padding: 13px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.featured-course {
+    flex-grow: 1;
+    padding: 0 15px;
+}
+
+.featured-course .course-menu {
+    display: flex;
+    gap: 21px;
+    justify-content: center;
+}
+
+.featured-course .course-menu a {
+    display: inline-block;
+    padding: 8px 14px;
+    min-width: 74px;
+    text-align: center;
+}
+
+.featured-course .course-menu a:active,
+.featured-course .course-menu a:hover {
+    color: #fff;
+    background: #783df0;
+    border-radius: 99px;
+}
+
+.list-course {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.course-item {
+    width: calc((100% / 3) - 60px);
+    flex-grow: 1;
+}
+
+.course-item .thumb {
+    display: block;
+    width: 100%;
+    height: 217px;
+    object-fit: cover;
+}
+
+.course-item .body {
+    padding: 15px 20px;
+    border: 1px solid #eeeeee;
+}
+
+.course-item .body .title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #464646;
+}
+
+.course-item .body .desc {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.course-item .body .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.course-item .body .lecturer {
+    display: flex;
+    align-items: center;
+}
+
+.course-item .body .lecturer img {
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.course-item .body .lecturer span,
+.course-item .body .user-icon {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.course-item .body .user-icon {
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+.course-pagination {
+    display: flex;
+    gap: 10px;
+    margin-top: 75px;
+}
+
+.course-pagination li a {
+    display: inline-block;
+    padding: 7px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.course-pagination li a:hover {
+    border: 1px solid #783df0;
+}
+
+/* .footer */
+.footer {
+    background: #151515;
+    padding: 80px 0 160px 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer .row .column {
+    width: 200px;
+    padding: 0 15px;
+}
+
+.footer .row .column:first-child,
+.footer .row .column:last-child {
+    width: 300px;
+}
+
+.footer .column .logo {
+    width: 165px;
+    height: 33px;
+    object-fit: cover;
+}
+
+.footer .column .desc {
+    margin: 23px 0;
+}
+
+.footer .install-app {
+    display: flex;
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.footer .install-app img {
+    width: 110px;
+    height: 38px;
+    object-fit: cover;
+}
+
+.footer .column .title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 8px 0 25px 0;
+}
+
+.footer .column .item a {
+    display: block;
+    padding: 8px 0;
+}
+
+.footer .column .item a:hover {
+    color: #b80257;
+}
+
+.footer .column input {
+    width: 100%;
+    margin: 25px 0 10px;
+    padding: 10px 20px;
+    background: #272727;
+    border-radius: 99px;
+    border: none;
+    caret-color: #fff;
+    outline: none;
+}
+
+.footer-cta {
+    min-width: 95px;
+    background-color: #b80257;
+    padding: 11px 0;
+}
+
+.footer-cta:hover {
+    color: #b80257;
+    background-color: #fff;
+}
