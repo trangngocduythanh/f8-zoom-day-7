@@ -148,6 +148,10 @@ a {
     color: rgba(255, 255, 255, 0.8);
 }
 
+.breadcrumbs li:first-child a:hover {
+    color: #783df0;
+}
+
 /* .main */
 .main {
     margin-top: 110px;
