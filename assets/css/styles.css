@@ -96,8 +96,44 @@ a {
     display: flex;
 }
 
-.header .nav a {
-    padding: 15px 25px;
+.header .nav > li {
+    position: relative;
+}
+
+.header .nav li:hover .sub-menu {
+    display: block;
+}
+
+.header .nav .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: #fff;
+    display: none;
+}
+
+.header .nav .sub-menu a {
+    display: block;
+    font-size: 1.6rem;
+    padding: 15px 25px 14px;
+    color: rgba(0, 0, 0, 0.6);
+    text-transform: capitalize;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav .sub-menu li:last-child a {
+    border-bottom: none;
+}
+
+.header .nav .sub-menu a:hover {
+    color: #fff;
+    background: #b80257;
+}
+
+.header .nav > li > a {
+    display: block;
+    padding: 16px 25px;
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 700;
@@ -107,12 +143,44 @@ a {
 }
 
 .user-actions {
+    position: relative;
     display: flex;
+    align-items: center;
 }
 
 .user-actions .action-btn {
     color: #fff;
     padding: 14px;
+    font-size: 16px;
+}
+
+.user-actions .search-form {
+    position: absolute;
+    top: 100%;
+    right: 30px;
+    padding: 5px;
+    background: #fff;
+    display: none;
+}
+
+.user-actions .user-checked-search:checked ~ .search-form {
+    display: block;
+}
+
+.user-actions .search-form input {
+    padding: 12px 49px 12px 10px;
+    border: 1px solid #ececec;
+    outline: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.user-actions .search-form .search-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #fff;
+    background: #b80257;
+    padding: 13px;
 }
 
 .hero {
@@ -421,4 +489,65 @@ a {
 .footer-cta:hover {
     color: #b80257;
     background-color: #fff;
+}
+
+/* outline-course.html */
+.course-title {
+    padding: 20px;
+    font-weight: 600;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.course-title .highlight {
+    color: transparent;
+    background-color: #00f;
+    background: linear-gradient(to right, #1e88c8, #60aed9);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.outline-course {
+    margin-top: 50px;
+    width: 1100px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+}
+
+.outline-course .chapter {
+    position: sticky;
+    top: 0;
+}
+
+.outline-course .chapter-title {
+    padding: 12px;
+    font-weight: 600;
+    font-size: 20px;
+    background: #117db3;
+    color: #fff;
+}
+
+.outline-course .chapter-title:hover {
+    background: #1e86bb;
+}
+
+.outline-course .lesson {
+    padding: 10px;
+    border-bottom: 1px solid #ebebeb;
+    font-weight: 400;
+    font-size: 16px;
+    color: #117db3;
+    background: #fff;
+}
+
+.outline-course .lesson:last-child {
+    border-bottom: none;
+}
+
+.outline-course .lesson:hover {
+    background: #117db3;
+    color: #fff;
 }
