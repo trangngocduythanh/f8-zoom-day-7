@@ -8,6 +8,11 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    scroll-behavior: smooth;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -92,46 +97,62 @@ a {
     height: 34px;
 }
 
-.header .nav {
+.nav {
     display: flex;
 }
 
-.header .nav > li {
+.nav > li {
     position: relative;
 }
 
-.header .nav li:hover .sub-menu {
-    display: block;
+.nav li:hover .sub-menu {
+    opacity: 1;
+    scale: 1;
 }
 
-.header .nav .sub-menu {
+.nav .sub-menu {
     position: absolute;
     top: 100%;
     left: 0;
     min-width: 220px;
-    background: #fff;
-    display: none;
+    opacity: 0;
+    scale: 1 0;
+    transition: ease-in-out 0.4s;
+    transition-property: opacity, scale;
+    transform-origin: center top;
 }
 
-.header .nav .sub-menu a {
+.nav .sub-menu li {
+    background: #fff;
+    transition: background ease-in-out 0.3s;
+}
+
+.nav .sub-menu li:hover {
+    background: #b80257;
+}
+
+.nav .sub-menu a {
     display: block;
     font-size: 1.6rem;
     padding: 15px 25px 14px;
     color: rgba(0, 0, 0, 0.6);
     text-transform: capitalize;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    translate: 0;
+    transition: ease-in-out 0.3s;
+    transition-property: translate;
 }
 
 .nav .sub-menu li:last-child a {
     border-bottom: none;
 }
 
-.header .nav .sub-menu a:hover {
+.nav .sub-menu a:hover {
+    translate: 4px 0;
     color: #fff;
-    background: #b80257;
 }
 
-.header .nav > li > a {
+.nav > li > a {
     display: block;
     padding: 16px 25px;
     font-family: var(--font-heading);
@@ -195,11 +216,12 @@ a {
 .hero h1 {
     font-size: 3.2rem;
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 .breadcrumbs {
     display: flex;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 .breadcrumbs li {
@@ -214,6 +236,10 @@ a {
 .breadcrumbs li a {
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.8);
+}
+
+.breadcrumbs li:first-child a {
+    transition: color ease-in-out 0.3s;
 }
 
 .breadcrumbs li:first-child a:hover {
@@ -267,9 +293,13 @@ a {
     padding: 12px 25px;
     color: rgba(0, 0, 0, 0.7);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    translate: 0;
+    transition: ease-in-out 0.3s;
+    transition-property: color, translate;
 }
 
 .course-sidebar-list ul a:hover {
+    translate: 10px 0;
     color: #783df0;
 }
 
@@ -300,15 +330,18 @@ a {
 .featured-course .course-menu a {
     display: inline-block;
     padding: 8px 14px;
+    border-radius: 99px;
     min-width: 74px;
     text-align: center;
+    background-color: transparent;
+    transition: ease-in-out 0.3s;
+    transition-property: background-color, color;
 }
 
 .featured-course .course-menu .active,
 .featured-course .course-menu a:hover {
     color: #fff;
     background: #783df0;
-    border-radius: 99px;
 }
 
 .list-course {
@@ -319,17 +352,54 @@ a {
 }
 
 .course-item {
+    position: relative;
     width: calc((100% / 3) - 20px);
 }
 
+.course-item:hover .thumb img {
+    scale: 1.1;
+    opacity: 0.8;
+}
+
 .course-item .thumb {
+    position: relative;
+    overflow: hidden;
+    background-image: -webkit-linear-gradient(
+        90deg,
+        rgb(40, 172, 225) 12%,
+        rgb(81, 204, 231) 50%,
+        rgb(122, 235, 236) 91%
+    );
+}
+
+.course-item .thumb img {
     display: block;
     width: 100%;
     height: 217px;
     object-fit: cover;
+
+    scale: 1;
+    opacity: 1;
+    transition: ease-in-out 0.6s;
+    transition-property: scale, opacity;
 }
 
-.course-item .thumb:hover {
+.course-item .thumb:hover img {
+    cursor: pointer;
+}
+
+.course-item .thumb .flash-wrap {
+    position: absolute;
+    top: -55px;
+    right: -77px;
+    z-index: 99;
+    width: 140px;
+    height: 100px;
+    padding: 73px 71px 10px 54px;
+    font-size: 21px;
+    color: #fff;
+    background: #b80257;
+    rotate: 35deg;
     cursor: pointer;
 }
 
@@ -344,7 +414,7 @@ a {
     color: #464646;
 }
 
-.course-item .body .title a:hover {
+.course-item:hover .body .title a {
     color: #b80257;
 }
 
@@ -386,6 +456,40 @@ a {
     background: #b80257;
 }
 
+.course-item-cta {
+    position: relative;
+    translate: 0;
+    transition: translate ease-in-out 0.3s;
+}
+
+.course-item-cta:hover {
+    translate: 0 -5px;
+}
+
+.course-item-cta::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 5%;
+    width: 90%;
+    height: 10px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.35) 0%,
+        rgba(0, 0, 0, 0) 80%
+    );
+    opacity: 0;
+    visibility: hidden;
+    transition: ease-in-out 0.3s;
+    transition-property: opacity, visibility;
+}
+
+.course-item-cta:hover:before {
+    opacity: 1;
+    visibility: visible;
+}
+
 .course-pagination {
     display: flex;
     gap: 10px;
@@ -399,6 +503,8 @@ a {
     border-radius: 8px;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.3);
+    transition: ease-in-out 0.3s;
+    transition-property: border, color;
 }
 .course-pagination li:last-child {
     margin-left: 10px;
@@ -411,6 +517,7 @@ a {
 .course-pagination li a:hover,
 .course-pagination li .active {
     border: 1px solid #783df0;
+    color: #783df0;
 }
 
 /* .footer */
@@ -462,6 +569,7 @@ a {
 .footer .column .item a {
     display: block;
     padding: 8px 0;
+    transition: color ease-in-out 0.3s;
 }
 
 .footer .column .item a:hover {
@@ -481,14 +589,47 @@ a {
 }
 
 .footer-cta {
+    position: relative;
     min-width: 95px;
-    background-color: #b80257;
     padding: 11px 0;
+    overflow: hidden;
+    background-color: #b80257;
 }
 
-.footer-cta:hover {
-    color: #b80257;
+.footer-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
     background-color: #fff;
+    scale: 0;
+    transition: scale ease-out 0.3s;
+}
+
+.footer-cta:hover:before {
+    scale: 1;
+}
+
+.footer-cta span {
+    position: relative;
+    z-index: 1;
+    transition: color ease-in-out 0.3s;
+}
+
+.footer-cta:hover span {
+    color: #b80257;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    background-color: #b80257;
+    color: #fff;
 }
 
 /* outline-course.html */
