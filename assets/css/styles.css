@@ -659,6 +659,10 @@ a {
 }
 
 .outline-course .chapter {
+    position: relative;
+}
+
+.outline-course .chapter-title-wrap {
     position: sticky;
     top: 0;
 }
@@ -669,10 +673,35 @@ a {
     font-size: 20px;
     background: #117db3;
     color: #fff;
+    transition: background ease-out 0.3s;
 }
 
 .outline-course .chapter-title:hover {
+    cursor: pointer;
     background: #1e86bb;
+}
+
+.chapter label:has(:checked) .open-chapter-icon {
+    rotate: 180deg;
+}
+
+.chapter .open-chapter-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    font-size: 20px;
+    color: #fff;
+    rotate: 0;
+    transition: rotate ease 0.3s;
+}
+
+.outline-course .lesson-wrap {
+    display: none;
+}
+
+.chapter label:has(:checked) ~ .lesson-wrap {
+    display: block;
 }
 
 .outline-course .lesson {
@@ -682,6 +711,8 @@ a {
     font-size: 16px;
     color: #117db3;
     background: #fff;
+    transition: ease 0.3s;
+    transition-property: color, background;
 }
 
 .outline-course .lesson:last-child {
@@ -689,6 +720,7 @@ a {
 }
 
 .outline-course .lesson:hover {
+    cursor: pointer;
     background: #117db3;
     color: #fff;
 }
